@@ -1,0 +1,17 @@
+.search-results {
+  grid-row: 2/-1;
+  grid-column: 1/2;
+
+  background-color: $color-secondary;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    padding: 4rem 2rem;
+  }
+
+  &__list {
+    list-style: none;
+  }
+}

@@ -1,0 +1,24 @@
+//COLORS
+$color-primary: #ffc1b2;
+$color-primary-dark: #ffb666;
+$color-secondary: #f8ebe7;
+$color-secondary-light: #f8ebe780;
+
+$color-text: #736136;
+$color-white: #fff;
+$color-black: #000;
+
+$gradient: linear-gradient(
+  to bottom right,
+  $color-primary,
+  $color-primary-dark
+);
+
+//FONTS
+$font-primary: 1.6rem;
+
+//Breakpoints
+$bp-large: 78.15em; // 1250px / 16px = 78.125em
+// $bp-medium: 56.25em; //900px / 16px = 56.25em
+$bp-medium: 62.5em; //900px / 16px = 56.25em
+$bp-medium-small: 40.625em; //650px / 16px = 40.625em

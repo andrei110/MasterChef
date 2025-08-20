@@ -1,0 +1,116 @@
+.btn {
+  border: none;
+  border-radius: 2rem;
+  fill: $color-white;
+  color: $color-white;
+  background-image: $gradient;
+  padding: 0.5rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.5rem;
+  }
+
+  &--tiny {
+    border: none;
+    background: none;
+    fill: $color-primary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px) scale(1.1);
+    }
+
+    svg {
+      height: 2.2rem;
+      width: 2.2rem;
+    }
+  }
+
+  &--round {
+    border: none;
+    background-image: $gradient;
+    border-radius: 50%;
+    fill: $color-white;
+    height: 5rem;
+    width: 5rem;
+    cursor: pointer;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    svg {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  &__recipe {
+    &,
+    &:link,
+    &:visited {
+      background-image: $gradient;
+      text-decoration: none;
+      color: $color-white;
+      border-radius: 2.5rem;
+      padding: 1rem 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      fill: $color-white;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.title {
+  &__main {
+    align-self: center;
+    transform: skewY(6deg);
+    color: $color-white;
+    width: 80%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 1.5;
+
+    span {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      background-image: $gradient;
+      padding: 0 2rem;
+    }
+  }
+
+  &--secondary {
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+  }
+}
