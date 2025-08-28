@@ -1,14 +1,39 @@
+export const state = {
+  recipe: {},
+};
+
 export const loadRecipe = async function (id) {
   try {
     const res = await fetch(
-      'https://api.spoonacular.com/recipes/658615/information?apiKey=8cc85375e59d42b687c87e8f0de98833'
+      'https://api.spoonacular.com/recipes/658615/information?includeNutrition=true&apiKey=8cc85375e59d42b687c87e8f0de98833'
     );
-    const data = await res.json();
+    console.log(res);
+    if (!res.ok)
+      throw new Error(`Recipe data could not be found (${res.status})`);
 
-    if (!res.ok) throw new Error(`Error: ${data.message} (${data.status})`);
+    const data = await res.json();
     console.log(data);
-    return data;
+
+    state.recipe = {
+      id: data.id,
+      title: data.title,
+      publisher: data.sourceName,
+      sourceUrl: data.sourceUrl,
+      image: data.image,
+      servings: data.servings,
+      cookingTime: data.readyInMinutes,
+      ingredients: data.nutrition.ingredients,
+      nutrition: {
+        protein: data.nutrition.caloricBreakdown.percentProtein,
+        fats: data.nutrition.caloricBreakdown.percentFat,
+        carbs: data.nutrition.caloricBreakdown.percentCarbs,
+        calories: data.nutrition.nutrients.find(n => n.name === 'Calories')
+          .amount,
+      },
+    };
+    console.log(state.recipe);
   } catch (err) {
+    console.error(`${err}💥💥`);
     throw err;
   }
 };
