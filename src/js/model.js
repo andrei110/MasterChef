@@ -5,7 +5,7 @@ export const state = {
 export const loadRecipe = async function (id) {
   try {
     const res = await fetch(
-      'https://api.spoonacular.com/recipes/658615/information?includeNutrition=true&apiKey=8cc85375e59d42b687c87e8f0de98833'
+      `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=8cc85375e59d42b687c87e8f0de98833`
     );
     console.log(res);
     if (!res.ok)
@@ -22,6 +22,7 @@ export const loadRecipe = async function (id) {
       image: data.image,
       servings: data.servings,
       cookingTime: data.readyInMinutes,
+      instructions: data.instructions,
       ingredients: data.nutrition.ingredients,
       nutrition: {
         protein: data.nutrition.caloricBreakdown.percentProtein,
@@ -37,3 +38,5 @@ export const loadRecipe = async function (id) {
     throw err;
   }
 };
+
+//658615
