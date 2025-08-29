@@ -22,7 +22,7 @@ export const loadRecipe = async function (id) {
       image: data.image,
       servings: data.servings,
       cookingTime: data.readyInMinutes,
-      instructions: data.instructions,
+      instructions: data.analyzedInstructions,
       ingredients: data.nutrition.ingredients,
       nutrition: {
         protein: data.nutrition.caloricBreakdown.percentProtein,

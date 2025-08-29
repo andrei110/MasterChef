@@ -167,6 +167,12 @@ body {
   font-size: 3rem;
   letter-spacing: 0.2rem;
 }
+.title--tetriary {
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  width: fit-content;
+}
 
 .header {
   grid-row: 1/2;
@@ -545,14 +551,61 @@ body {
   text-align: justify;
   hyphens: auto;
 }
+.recipe__instructions {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recipe__instructions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recipe__instructions-container > :not(:last-child) {
+  margin-bottom: 2rem;
+}
+.recipe__instructions-list {
+  list-style: none;
+}
+.recipe__instructions-list > :not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+.recipe__instructions-item > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+.recipe__instructions-heading {
+  display: flex;
+  align-items: center;
+}
+.recipe__instructions-text {
+  text-align: left;
+  font-size: 1.4rem;
+  margin-left: 5rem;
+}
+.recipe__instructions-text span {
+  border: 1.5px solid #ffc1b2;
+  border-radius: 50%;
+  padding: 0 0.6rem;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+.recipe__instructions-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  fill: #ffc1b2;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  flex: 0 0 auto;
+}
 .recipe__directions {
+  background-color: rgba(248, 235, 231, 0.5019607843);
   padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .recipe__directions-container {
-  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -562,6 +615,7 @@ body {
 }
 .recipe__directions-text {
   text-align: center;
+  width: 70%;
 }
 .recipe__directions-text span {
   color: #ffc1b2;

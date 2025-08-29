@@ -12,6 +12,7 @@ class RecipeView extends View {
 
   _generateMarkup() {
     // console.log(this._data);
+    console.log(this);
     return `
       <div class="recipe__header">
           <div class="recipe__calories">
@@ -113,13 +114,22 @@ class RecipeView extends View {
               .join('')}
           </ul>
         </div>
+
+
+        <div class="recipe__instructions">
+          <div class="recipe__instructions-container">
+            <h2 class="title--secondary">How to cook it</h2>
+            <ul class="recipe__instructions-list">
+              ${this._data.instructions
+                .map(this._generateMarkupInstructions)
+                .join('')}
+            </ul>
+          </div>
+        </div>
+
+
         <div class="recipe__directions">
           <div class="recipe__directions-container">
-            <h2 class="title--secondary">How to cook it</h2>
-            <p class="recipe__directions-text">
-              ${this._data.instructions}
-            </p>
-            
             <p class="recipe__directions-text">
               This recipe was carefully designed and tested by
               <span>${
@@ -150,6 +160,39 @@ class RecipeView extends View {
                 ${ing.name}
               </div>
             </li>
+    `;
+  }
+
+  _generateMarkupInstructions(ing) {
+    return `
+        <li class="recipe__instructions-item">
+          ${
+            ing.name
+              ? `
+              <h2 class="title--tetriary recipe__instructions-heading">
+                <svg class="recipe__instructions-icon">
+                  <use href="${icons}#icon-arrow-right"></use>
+                </svg>
+                ${ing.name}
+              </h2>
+            `
+              : ''
+          }
+          
+          ${ing.steps
+            .map(
+              RecipeView.prototype._generateMarkupInstructionsSteps.bind(this)
+            )
+            .join('')}
+        </li>
+    `;
+  }
+
+  _generateMarkupInstructionsSteps(step) {
+    return `
+        <p class="recipe__instructions-text">
+          <span>${step.number}</span>${step.step}
+        </p>
     `;
   }
 }

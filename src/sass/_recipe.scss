@@ -160,15 +160,75 @@
     }
   }
 
-  // Recipe directions
-  &__directions {
+  // Recipe Instructions
+  &__instructions {
     padding: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     &-container {
-      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &-list {
+      list-style: none;
+
+      & > :not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    &-item {
+      & > :not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-heading {
+      display: flex;
+      align-items: center;
+    }
+
+    &-text {
+      text-align: left;
+      font-size: 1.4rem;
+      margin-left: 5rem;
+
+      & span {
+        border: 1.5px solid $color-primary;
+        border-radius: 50%;
+        padding: 0 0.6rem;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+    }
+
+    &-icon {
+      width: 2.3rem;
+      height: 2.3rem;
+      fill: $color-primary;
+      margin-right: 0.5rem;
+      margin-bottom: 0.3rem;
+      flex: 0 0 auto;
+    }
+  }
+
+  // Recipe directions
+  &__directions {
+    background-color: $color-secondary-light;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -180,6 +240,7 @@
 
     &-text {
       text-align: center;
+      width: 70%;
 
       & span {
         color: $color-primary;
