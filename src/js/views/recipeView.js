@@ -80,10 +80,10 @@ class RecipeView extends View {
             <svg class="recipe__info-icon">
               <use href="${icons}#icon-people_alt"></use>
             </svg>
-            <span class="recipe__info-data recipe__info-minutes">${
-              this._data.servings
+            <span class="recipe__info-data recipe__info-servings">${1}</span>
+            <span class="recipe__info-text">${
+              1 > 1 ? 'Servings' : 'Serving'
             }</span>
-            <span class="recipe__info-text">Servings</span>
 
             <div class="recipe__info-buttons">
               <button class="btn--tiny btn__servings btn__servings--plus">
@@ -180,9 +180,7 @@ class RecipeView extends View {
           }
           
           ${ing.steps
-            .map(
-              RecipeView.prototype._generateMarkupInstructionsSteps.bind(this)
-            )
+            .map(RecipeView.prototype._generateMarkupInstructionsSteps)
             .join('')}
         </li>
     `;
