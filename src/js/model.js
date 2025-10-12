@@ -1,4 +1,5 @@
 import { getJSON } from '../js/helpers.js';
+import { API_URL, API_URL_NUTRITION, KEY } from '../js/config.js';
 
 export const state = {
   recipe: {},
@@ -6,9 +7,7 @@ export const state = {
 
 export const loadRecipe = async function (id) {
   try {
-    const data = await getJSON(
-      `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=8cc85375e59d42b687c87e8f0de98833`
-    );
+    const data = await getJSON(`${API_URL_NUTRITION(id)}&${KEY}`);
 
     state.recipe = {
       id: data.id,
