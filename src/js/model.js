@@ -1,18 +1,14 @@
+import { getJSON } from '../js/helpers.js';
+
 export const state = {
   recipe: {},
 };
 
 export const loadRecipe = async function (id) {
   try {
-    const res = await fetch(
+    const data = await getJSON(
       `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=8cc85375e59d42b687c87e8f0de98833`
     );
-    console.log(res);
-    if (!res.ok)
-      throw new Error(`Recipe data could not be found (${res.status})`);
-
-    const data = await res.json();
-    console.log(data);
 
     state.recipe = {
       id: data.id,
