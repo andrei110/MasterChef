@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
+import resultsView from './views/resultsView.js';
 import searchView from './views/searchView.js';
 
 const controlRecipe = async function () {
@@ -21,8 +22,15 @@ const controlRecipe = async function () {
 
 // Search Results
 const controlSearchResults = async function () {
-  const query = searchView.getQuery();
-  console.log(query);
+  try {
+    const query = searchView.getQuery();
+    console.log(query);
+    await model.loadSearchResults(query);
+    console.log(model.state.search);
+    resultsView.render(model.state.search.results);
+  } catch (err) {
+    console.error(`❌🥲${err}`);
+  }
 };
 
 // App init

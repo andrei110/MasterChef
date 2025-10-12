@@ -10,7 +10,7 @@ class RecipeView extends View {
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
-  _generateMarkup() {
+  generateMarkup() {
     // console.log(this._data);
     console.log(this);
     return `
