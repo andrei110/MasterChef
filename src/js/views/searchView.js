@@ -4,7 +4,6 @@ import icons from '../../img/icons.svg';
 class SearchView extends View {
   _parentElement = document.querySelector('.search');
   _inputSearch = document.querySelector('.search__field');
-  _searchTitle = document.querySelector('.search-results__title span');
   _errorMessage = '';
   _message = '';
 
@@ -16,11 +15,18 @@ class SearchView extends View {
   }
 
   getQuery() {
+    // Get query from search bar
     const query = this._inputSearch.value;
+    // Clear search bar input
     this._clearInput();
-    this._searchTitle.textContent = `${
+    // Text formatting
+    const html = `<span>${
       query[0].toUpperCase() + query.slice(1)
-    } Recipes`;
+    } Recipes</span>`;
+    // Clear previous title
+    this.clearSearchTitle();
+    // Adding formatted title to page
+    this.searchTitle.insertAdjacentHTML('afterbegin', html);
     return query;
   }
 
