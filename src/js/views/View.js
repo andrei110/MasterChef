@@ -9,6 +9,10 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  renderError(err) {
+    this._clear();
+  }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }

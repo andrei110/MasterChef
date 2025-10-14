@@ -4,6 +4,7 @@ import icons from '../../img/icons.svg';
 class SearchView extends View {
   _parentElement = document.querySelector('.search');
   _inputSearch = document.querySelector('.search__field');
+  _searchTitle = document.querySelector('.search-results__title span');
   _errorMessage = '';
   _message = '';
 
@@ -17,6 +18,9 @@ class SearchView extends View {
   getQuery() {
     const query = this._inputSearch.value;
     this._clearInput();
+    this._searchTitle.textContent = `${
+      query[0].toUpperCase() + query.slice(1)
+    } Recipes`;
     return query;
   }
 

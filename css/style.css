@@ -337,7 +337,7 @@ body {
 .preview__link:link, .preview__link:visited {
   text-decoration: none;
   color: #736136;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   display: flex;
   align-items: center;
   transition: all 0.3s;
@@ -576,7 +576,6 @@ body {
 }
 .recipe__instructions-heading {
   display: flex;
-  align-items: center;
 }
 .recipe__instructions-text {
   text-align: left;
