@@ -35,10 +35,16 @@
     color: $color-text;
     background-color: $color-secondary;
     text-shadow: 2px 2px 6px rgba($color-text, 0.2);
+    transition: transform 0.3s, color 0.2s, background-color 0.2s;
 
-    &:hover {
+    &:hover:not(.btn-pagination__dots) {
       color: $color-white;
       background-image: $gradient;
+      transform: translateY(-1.5px) scale(1.05);
+    }
+
+    &:active {
+      transform: translateY(0) scale(1) !important;
     }
   }
 
@@ -47,11 +53,20 @@
   }
 
   .btn-pagination {
+    &__active {
+      color: $color-white;
+      background-image: $gradient;
+      box-shadow: 2px 2px 5px rgba($color-text, 0.2);
+    }
+    &__dots {
+      cursor: auto;
+    }
     &__prev,
     &__next {
       fill: $color-text;
       background-color: $color-white;
       transition: all 0.2s;
+      box-shadow: 2px 2px 5px rgba($color-text, 0.2);
 
       &:hover {
         fill: $color-white;

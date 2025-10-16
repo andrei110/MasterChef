@@ -146,10 +146,6 @@ body {
   fill: #fff;
   margin-left: 1rem;
 }
-.btn-pagination__prev {
-  transform: rotate(180deg);
-  fill: #fff;
-}
 .btn-pagination__prev svg {
   margin-left: 0.5rem;
 }
@@ -434,18 +430,32 @@ body {
   color: #736136;
   background-color: #f8ebe7;
   text-shadow: 2px 2px 6px rgba(115, 97, 54, 0.2);
+  transition: transform 0.3s, color 0.2s, background-color 0.2s;
 }
-.pagination > *:hover {
+.pagination > *:hover:not(.btn-pagination__dots) {
   color: #fff;
   background-image: linear-gradient(to bottom right, #ffc1b2, #ffb666);
+  transform: translateY(-1.5px) scale(1.05);
+}
+.pagination > *:active {
+  transform: translateY(0) scale(1) !important;
 }
 .pagination > *:not(:last-child) {
   margin-right: 1rem;
+}
+.pagination .btn-pagination__active {
+  color: #fff;
+  background-image: linear-gradient(to bottom right, #ffc1b2, #ffb666);
+  box-shadow: 2px 2px 5px rgba(115, 97, 54, 0.2);
+}
+.pagination .btn-pagination__dots {
+  cursor: auto;
 }
 .pagination .btn-pagination__prev, .pagination .btn-pagination__next {
   fill: #736136;
   background-color: #fff;
   transition: all 0.2s;
+  box-shadow: 2px 2px 5px rgba(115, 97, 54, 0.2);
 }
 .pagination .btn-pagination__prev:hover, .pagination .btn-pagination__next:hover {
   fill: #fff;
