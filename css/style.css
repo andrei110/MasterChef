@@ -83,6 +83,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  height: 100%;
 }
 .btn svg {
   height: 2rem;
@@ -144,6 +145,16 @@ body {
   height: 2rem;
   fill: #fff;
   margin-left: 1rem;
+}
+.btn-pagination__prev {
+  transform: rotate(180deg);
+  fill: #fff;
+}
+.btn-pagination__prev svg {
+  margin-left: 0.5rem;
+}
+.btn-pagination__next svg {
+  margin-right: 0;
 }
 
 .title__main {
@@ -395,6 +406,7 @@ body {
   grid-column: 1/2;
   background-color: #f8ebe7;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -403,6 +415,42 @@ body {
 }
 .search-results__list {
   list-style: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 5rem 0;
+}
+.pagination > * {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  background-image: none;
+  color: #736136;
+  background-color: #f8ebe7;
+  text-shadow: 2px 2px 6px rgba(115, 97, 54, 0.2);
+}
+.pagination > *:hover {
+  color: #fff;
+  background-image: linear-gradient(to bottom right, #ffc1b2, #ffb666);
+}
+.pagination > *:not(:last-child) {
+  margin-right: 1rem;
+}
+.pagination .btn-pagination__prev, .pagination .btn-pagination__next {
+  fill: #736136;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+.pagination .btn-pagination__prev:hover, .pagination .btn-pagination__next:hover {
+  fill: #fff;
+  background-color: none;
+  background-image: linear-gradient(to bottom right, #ffc1b2, #ffb666);
 }
 
 .recipe {

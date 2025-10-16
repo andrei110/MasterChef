@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  height: 100%;
 
   svg {
     height: 2rem;
@@ -85,6 +86,20 @@
       height: 2rem;
       fill: $color-white;
       margin-left: 1rem;
+    }
+  }
+
+  &-pagination__prev {
+    transform: rotate(180deg);
+    fill: $color-white;
+    svg {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &-pagination__next {
+    svg {
+      margin-right: 0;
     }
   }
 }
