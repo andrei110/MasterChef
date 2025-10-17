@@ -24,11 +24,17 @@ const controlRecipe = async function () {
 // Search Results
 const controlSearchResults = async function () {
   try {
+    // Get search query
     const query = searchView.getQuery();
     console.log(query);
+    if (!query) return;
+    // Load recipes
     await model.loadSearchResults(query);
     console.log(model.state.search);
-    resultsView.render(model.getResultsPerPage());
+    //Render recipes loaded
+    resultsView.render(model.getResultsPerPage(1));
+    // Render initial pagination
+    paginationView.render(model.state.search);
   } catch (err) {
     console.error(`❌🥲${err}`);
   }
@@ -36,6 +42,10 @@ const controlSearchResults = async function () {
 
 const controlPagination = function (page) {
   console.log(page);
+  // Render recipes
+  resultsView.render(model.getResultsPerPage(page));
+  // Render pagination
+  paginationView.render(model.state.search);
 };
 
 // App init

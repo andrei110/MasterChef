@@ -417,7 +417,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 .pagination > * {
   width: 3rem;
@@ -442,6 +442,10 @@ body {
 }
 .pagination > *:not(:last-child) {
   margin-right: 1rem;
+}
+.pagination > .btn-pagination__dots {
+  margin-right: -0.5rem;
+  margin-left: -1rem;
 }
 .pagination .btn-pagination__active {
   color: #fff;
