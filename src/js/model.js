@@ -102,6 +102,6 @@ export const updateServings = function (newServings) {
   );
   // Update ingredients
   state.recipe.ingredients.map(
-    el => (el.amount = el.amountInitial * newServings)
+    el => (el.amount = +(el.amountInitial * newServings).toFixed(2))
   );
 };
