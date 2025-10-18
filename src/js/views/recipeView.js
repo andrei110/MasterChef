@@ -10,6 +10,18 @@ class RecipeView extends View {
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
+  addHandlerServings(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Select button
+      const btn = e.target.closest('.btn__servings');
+      if (!btn) return;
+      // Send new serving number to controller
+      const servingUpdated = +btn.dataset.servings;
+      handler(servingUpdated);
+    });
+  }
+
   generateMarkup() {
     // console.log(this._data);
     console.log(this);
@@ -80,18 +92,24 @@ class RecipeView extends View {
             <svg class="recipe__info-icon">
               <use href="${icons}#icon-people_alt"></use>
             </svg>
-            <span class="recipe__info-data recipe__info-servings">${1}</span>
+            <span class="recipe__info-data recipe__info-servings">${
+              this._data.servings
+            }</span>
             <span class="recipe__info-text">${
-              1 > 1 ? 'Servings' : 'Serving'
+              this._data.servings > 1 ? 'Servings' : 'Serving'
             }</span>
 
             <div class="recipe__info-buttons">
-              <button class="btn--tiny btn__servings btn__servings--plus">
+              <button class="btn--tiny btn__servings btn__servings--plus" data-servings=${
+                this._data.servings + 1
+              }>
                 <svg>
                   <use href="${icons}#icon-add_circle_outline"></use>
                 </svg>
               </button>
-              <button class="btn--tiny btn__servings">
+              <button class="btn--tiny btn__servings btn__servings--minus" data-servings=${
+                this._data.servings - 1
+              }>
                 <svg>
                   <use href="${icons}#icon-minus-outline"></use>
                 </svg>

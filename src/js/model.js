@@ -26,7 +26,7 @@ export const loadRecipe = async function (id) {
       publisher: data.sourceName,
       sourceUrl: data.sourceUrl,
       image: data.image,
-      servings: data.servings,
+      servings: 1,
       cookingTime: data.readyInMinutes,
       instructions: data.analyzedInstructions,
       ingredients: data.nutrition.ingredients,
@@ -74,4 +74,34 @@ export const getResultsPerPage = function (page = state.search.page) {
   return state.search.results.slice(start, end);
 };
 
-//658615
+export const updateServings = function (newServings) {
+  // Return if user wants to update servings below 1
+  if (newServings < 1) return;
+  // Update state with new servings
+  state.recipe.servings = newServings;
+  // Create initial values to save them before update
+  if (!state.recipe.nutrition.initial) {
+    // Initial values for nutrition
+    console.log('Creare nutrition initial');
+    state.recipe.nutrition.initial = {};
+    Object.entries(state.recipe.nutrition).map(
+      ([macro, num]) =>
+        !macro.includes('initial') &&
+        (state.recipe.nutrition.initial[macro] = num)
+    );
+    // Initial values for ingredients
+    state.recipe.ingredients.map(el => (el.amountInitial = el.amount));
+  }
+  // Update macros
+  Object.entries(state.recipe.nutrition).map(
+    ([macro, num]) =>
+      !macro.includes('initial') &&
+      (state.recipe.nutrition[macro] = +(
+        state.recipe.nutrition.initial[macro] * newServings
+      ).toFixed(2))
+  );
+  // Update ingredients
+  state.recipe.ingredients.map(
+    el => (el.amount = el.amountInitial * newServings)
+  );
+};
