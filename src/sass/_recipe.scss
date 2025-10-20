@@ -62,6 +62,11 @@
       left: 0;
       border-radius: 2.5rem;
       opacity: 0.2;
+
+      @media only screen and (max-width: $bp-large) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
 
     @media only screen and (max-width: $bp-large) {

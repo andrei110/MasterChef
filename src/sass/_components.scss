@@ -134,3 +134,28 @@
     width: fit-content;
   }
 }
+
+.message {
+  // background-color: red;
+  width: fit-content;
+  display: flex;
+  text-align: center;
+
+  &__bookmarks {
+    padding: 1rem 0;
+  }
+
+  &__recipe {
+    margin: 5rem auto;
+    padding: 2rem 4rem;
+    // background-color: red;
+  }
+
+  &__icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    fill: $color-primary;
+    transform: translateY(0.75rem);
+    margin-left: 0.75rem;
+  }
+}
