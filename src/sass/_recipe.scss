@@ -2,6 +2,11 @@
   grid-row: 2/-1;
   grid-column: 2/-1;
 
+  @media only screen and (max-width: $bp-medium-small--800) {
+    margin-left: 7rem;
+    grid-column: 1/-1;
+  }
+
   &__header {
     // background-color: red;
     display: grid;

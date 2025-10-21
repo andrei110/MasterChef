@@ -6,6 +6,17 @@ class ResultsView extends View {
   _errorMessage = '';
   _message = '';
 
+  addHandlerSideBar() {
+    document
+      .querySelector('.search-results__btn')
+      .addEventListener('click', function (e) {
+        e.preventDefault();
+        document
+          .querySelector('.search-results')
+          .classList.toggle('search-results__sideBar-toggle');
+      });
+  }
+
   generateMarkup() {
     return this._data.map(this._generateMarkupPreview).join('');
   }

@@ -46,7 +46,11 @@ body {
     border-radius: 0;
   }
 
-  @media only screen and (max-width: $bp-medium-small) {
+  @media only screen and (max-width: $bp-medium-small--800) {
+    grid-template-columns: 1fr auto;
+  }
+
+  @media only screen and (max-width: $bp-medium-small--650) {
     grid-template-rows: 15rem 1fr;
   }
 

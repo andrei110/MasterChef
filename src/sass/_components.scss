@@ -1,16 +1,25 @@
 .btn {
-  border: none;
-  border-radius: 2rem;
-  fill: $color-white;
-  color: $color-white;
-  background-image: $gradient;
-  padding: 0.5rem 2rem;
-  font-family: inherit;
-  font-size: inherit;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  height: 100%;
+  &,
+  &:link,
+  &:visited {
+    border: none;
+    border-radius: 2rem;
+    fill: $color-white;
+    color: $color-white;
+    background-image: $gradient;
+    padding: 0.5rem 2rem;
+    font-family: inherit;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
 
   svg {
     height: 2rem;
@@ -146,7 +155,7 @@
   }
 
   &__recipe {
-    margin: 5rem auto;
+    margin: 7rem auto;
     padding: 2rem 4rem;
     // background-color: red;
   }
@@ -158,4 +167,9 @@
     transform: translateY(0.75rem);
     margin-left: 0.75rem;
   }
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
