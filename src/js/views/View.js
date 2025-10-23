@@ -1,6 +1,8 @@
 export default class View {
   _data;
   searchTitle = document.querySelector('.search-results__title');
+  // Breakpoints
+  bp800 = window.matchMedia('(max-width: 800px)');
 
   render(data) {
     this._data = data;

@@ -3,6 +3,7 @@ import icons from '../../img/icons.svg';
 
 class ResultsView extends View {
   _parentElement = document.querySelector('.search-results__list');
+  _sideBarBtn = document.querySelector('.search-results__btn');
   _errorMessage = '';
   _message = '';
 
@@ -15,6 +16,11 @@ class ResultsView extends View {
           .querySelector('.search-results')
           .classList.toggle('search-results__sideBar-toggle');
       });
+  }
+
+  unhideSideBarBtn() {
+    if (!this.bp800.matches) return;
+    this._sideBarBtn.classList.remove('hidden');
   }
 
   generateMarkup() {
