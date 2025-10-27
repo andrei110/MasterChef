@@ -1,6 +1,7 @@
 export default class View {
   _data;
   searchTitle = document.querySelector('.search-results__title');
+  overlay = document.querySelector('.overlay');
   // Breakpoints
   bp800 = window.matchMedia('(max-width: 800px)');
 
@@ -10,6 +11,12 @@ export default class View {
     const markup = this.generateMarkup();
     this._clearParentEl();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  setOverlayHeight() {
+    document.querySelector('.overlay').style.height = `${
+      document.querySelector('.container').getBoundingClientRect().height
+    }px`;
   }
 
   renderError(err) {

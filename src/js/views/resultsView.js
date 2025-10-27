@@ -7,22 +7,6 @@ class ResultsView extends View {
   _errorMessage = '';
   _message = '';
 
-  addHandlerSideBar() {
-    document
-      .querySelector('.search-results__btn')
-      .addEventListener('click', function (e) {
-        e.preventDefault();
-        document
-          .querySelector('.search-results')
-          .classList.toggle('search-results__sideBar-toggle');
-      });
-  }
-
-  unhideSideBarBtn() {
-    if (!this.bp800.matches) return;
-    this._sideBarBtn.classList.remove('hidden');
-  }
-
   generateMarkup() {
     return this._data.map(this._generateMarkupPreview).join('');
   }
