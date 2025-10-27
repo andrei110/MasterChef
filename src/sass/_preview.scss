@@ -1,4 +1,5 @@
 .preview {
+  transition: all 0.3s;
   &__link {
     &:link,
     &:visited {
@@ -32,6 +33,7 @@
     border-radius: 50%;
     margin-left: 2rem;
     margin-right: 1rem;
+    transition: all 0.3s;
 
     &::before {
       content: '';

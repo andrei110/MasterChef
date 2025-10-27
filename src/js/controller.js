@@ -3,6 +3,7 @@ import recipeView from './views/recipeView.js';
 import resultsView from './views/resultsView.js';
 import searchView from './views/searchView.js';
 import paginationView from './views/paginationView.js';
+import sideBarView from './views/sideBarView.js';
 
 const controlRecipe = async function () {
   try {
@@ -10,12 +11,13 @@ const controlRecipe = async function () {
     console.log(id);
 
     if (!id) return;
-
+    sideBarView.closeSideBar();
     // Load recipe data
     await model.loadRecipe(id);
 
     // Render recipe data
     recipeView.render(model.state.recipe);
+    recipeView.setOverlayHeight();
   } catch (err) {
     console.error(err);
   }
@@ -28,6 +30,8 @@ const controlSearchResults = async function () {
     const query = searchView.getQuery();
     console.log(query);
     if (!query) return;
+    // Unhide sideBar button (only below 800 px)
+    sideBarView.unhideSideBarBtn();
     // Load recipes
     await model.loadSearchResults(query);
     console.log(model.state.search);
@@ -61,6 +65,8 @@ const init = function () {
   recipeView.addHandlerServings(controlServings);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerPagination(controlPagination);
+  sideBarView.addHandlerSideBar();
+  sideBarView.addHandlerOverlay();
 };
 
 init();

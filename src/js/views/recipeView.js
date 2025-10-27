@@ -3,6 +3,7 @@ import icons from '../../img/icons.svg';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
+  _overlay = document.querySelector('.overlay');
   _errorMessage = '';
   _message = '';
 

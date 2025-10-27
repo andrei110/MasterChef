@@ -7,22 +7,113 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  // display: grid;
+  position: relative;
+  transition: all 0.3s;
+
+  @media only screen and (max-width: $bp-medium-small--800) {
+    position: sticky;
+    width: 40rem;
+    z-index: 10;
+
+    &__sideBar-toggle {
+      width: 7rem;
+      overflow: hidden;
+      text-wrap: nowrap;
+
+      & > h1 {
+        transform: skewY(6deg) translateX(-100rem);
+        // visibility: hidden;
+        // display: none;
+      }
+      & button {
+        right: 1rem;
+        background-color: $color-white;
+        border-radius: 50%;
+
+        & svg {
+          transform: rotate(180deg);
+        }
+
+        &:hover {
+          & svg {
+            transform: rotate(180deg) scale(1.1);
+          }
+        }
+      }
+
+      & .search-results__list {
+        margin-top: -4rem;
+
+        & figure {
+          width: 5rem;
+          height: 5rem;
+          margin-left: 1rem;
+        }
+
+        & .preview__data {
+          width: 0;
+        }
+      }
+
+      & .pagination {
+        transform: translateX(-30vw);
+      }
+    }
+  }
 
   &__title {
     padding: 4rem 2rem;
+    transition: all 0.3s;
   }
 
   &__list {
     list-style: none;
+  }
+
+  &__btn {
+    border: none;
+    background-color: $color-secondary-light;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    top: 2rem;
+    right: -5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: none;
+    box-shadow: 7px 2px 25px rgba($color-text, 0.2);
+
+    @media only screen and (max-width: $bp-medium-small--800) {
+      display: block;
+      // top: 12rem;
+    }
+
+    &:hover {
+      & svg {
+        transform: scale(1.1);
+      }
+    }
+
+    & svg {
+      transition: all 0.2s;
+      width: 3rem;
+      height: 3rem;
+      fill: $color-primary;
+      transition: all 0.3s;
+    }
   }
 }
 
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: auto;
+  // margin-top: auto;
   padding: 6rem 0;
+  transition: all 0.3s;
+
+  @media only screen and (max-width: $bp-medium-small--650) {
+    margin-bottom: 5rem;
+  }
 
   & > * {
     width: 3rem;

@@ -3,6 +3,7 @@ import icons from '../../img/icons.svg';
 
 class ResultsView extends View {
   _parentElement = document.querySelector('.search-results__list');
+  _sideBarBtn = document.querySelector('.search-results__btn');
   _errorMessage = '';
   _message = '';
 
