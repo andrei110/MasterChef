@@ -60,6 +60,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media only screen and (max-width: $bp-small--410) {
+      max-width: 22rem;
+    }
   }
 
   &__publisher {

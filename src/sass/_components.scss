@@ -127,6 +127,10 @@
       box-decoration-break: clone;
       background-image: $gradient;
       padding: 0 2rem;
+
+      @media only screen and (max-width: $bp-small--410) {
+        padding: 0 1rem;
+      }
     }
   }
 

@@ -11,7 +11,11 @@ html {
   font-size: 62.5%; // 10px=1rem
 
   @media only screen and (max-width: $bp-medium) {
-    font-size: 50%; // 10px=1rem
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-medium-small--650) {
+    font-size: 40%;
   }
 }
 

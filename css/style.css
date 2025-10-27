@@ -29,6 +29,11 @@ html {
     font-size: 50%;
   }
 }
+@media only screen and (max-width: 40.625em) {
+  html {
+    font-size: 40%;
+  }
+}
 
 body {
   font-family: "Alkatra", "sans-serif", system-ui;
@@ -176,6 +181,11 @@ body {
   box-decoration-break: clone;
   background-image: linear-gradient(to bottom right, #ffc1b2, #ffb666);
   padding: 0 2rem;
+}
+@media only screen and (max-width: 25.625em) {
+  .title__main span {
+    padding: 0 1rem;
+  }
 }
 .title--secondary {
   font-weight: 400;
@@ -442,6 +452,11 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media only screen and (max-width: 25.625em) {
+  .preview__title {
+    max-width: 22rem;
+  }
+}
 .preview__publisher {
   max-width: 25rem;
   white-space: nowrap;
@@ -466,6 +481,13 @@ body {
     width: 40rem;
     z-index: 10;
   }
+}
+@media only screen and (max-width: 51.25em) and (max-width: 25.625em) {
+  .search-results {
+    width: 35rem;
+  }
+}
+@media only screen and (max-width: 51.25em) {
   .search-results__sideBar-toggle {
     width: 7rem;
     overflow: hidden;
@@ -618,6 +640,12 @@ body {
     grid-template-rows: 1fr 1fr;
   }
 }
+@media only screen and (max-width: 25.625em) {
+  .recipe__header {
+    padding: 4rem 3rem;
+    grid-template-rows: auto 1fr;
+  }
+}
 .recipe__calories {
   background-color: #f8ebe7;
   grid-row: 2/-1;
@@ -643,6 +671,16 @@ body {
     align-items: center;
     flex-wrap: wrap;
     padding-top: 8rem;
+  }
+}
+@media only screen and (max-width: 31.25em) {
+  .recipe__calories {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__calories {
+    padding-top: 13rem;
   }
 }
 .recipe__fig {
@@ -681,6 +719,11 @@ body {
     border-bottom-right-radius: 0;
   }
 }
+@media only screen and (max-width: 25.625em) {
+  .recipe__fig {
+    height: 30rem;
+  }
+}
 .recipe__img {
   min-height: 100%;
   width: 100%;
@@ -701,6 +744,20 @@ body {
 .recipe__details {
   padding: 5rem;
   display: flex;
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__details {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 5rem 3rem;
+  }
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__info:not(:first-child) {
+    grid-row: 2/3;
+  }
 }
 .recipe__info {
   display: flex;
@@ -730,12 +787,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@media only screen and (max-width: 31.25em) {
+  .recipe__ingredients {
+    padding: 5rem 3rem;
+  }
+}
 .recipe__ingredients-list {
   list-style: none;
   margin-top: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem 4rem;
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__ingredients-list {
+    grid-template-columns: 1fr;
+  }
 }
 .recipe__ingredients-item {
   display: flex;
@@ -759,6 +826,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__instructions {
+    padding: 5rem 3rem;
+  }
 }
 .recipe__instructions-container {
   display: flex;
@@ -785,6 +857,11 @@ body {
   font-size: 1.4rem;
   margin-left: 5rem;
 }
+@media only screen and (max-width: 31.25em) {
+  .recipe__instructions-text {
+    margin-left: 0;
+  }
+}
 .recipe__instructions-text span {
   border: 1.5px solid #ffc1b2;
   border-radius: 50%;
@@ -808,6 +885,11 @@ body {
   align-items: center;
   height: 100%;
 }
+@media only screen and (max-width: 25.625em) {
+  .recipe__directions {
+    padding: 5rem 3rem;
+  }
+}
 .recipe__directions-container {
   display: flex;
   flex-direction: column;
@@ -816,9 +898,19 @@ body {
 .recipe__directions-container > :not(:last-child) {
   margin-bottom: 2rem;
 }
+@media only screen and (max-width: 25.625em) {
+  .recipe__directions-container > :not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
 .recipe__directions-text {
   text-align: center;
   width: 70%;
+}
+@media only screen and (max-width: 25.625em) {
+  .recipe__directions-text {
+    width: 90%;
+  }
 }
 .recipe__directions-text span {
   color: #ffc1b2;
@@ -861,6 +953,11 @@ body {
 @media only screen and (max-width: 78.15em) {
   .calories__container {
     padding: 2rem;
+  }
+}
+@media only screen and (max-width: 31.25em) {
+  .calories__container {
+    padding: 1rem;
   }
 }
 
