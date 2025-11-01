@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/assets/favicon-DUbOYI7a.png" type="image/x-icon" />
+
+    <!-- <link rel="stylesheet" href="src/sass/main.scss" /> -->
+
+    <title>MasterChef</title>
+    <script type="module" crossorigin src="/assets/index-CqyrYxfS.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CoTX3UDx.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header ---------------------------------------->
+      <hearder class="header">
+        <img src="/assets/Logo-4iIa_91y.png" class="header__logo" alt="logo" />
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Search for recipe"
+          />
+          <button class="btn search__btn">
+            <svg class="search__icon">
+              <use href="/assets/icons-DnzRpXm9.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn">
+                <svg class="nav__icon">
+                  <use href="/assets/icons-DnzRpXm9.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
+              </button>
+              <div class="bookmarks">
+                <ul class="bookmarks__list">
+                  <div class="message message__bookmarks">
+                    <p class="message__text message__bookmarks--test">
+                      No bookmarks yet. Find a nice recipe and book it 😄
+                    </p>
+                  </div>
+
+                  <!-- <li class="preview">
+                    <a href="#2122" class="preview__link">
+                      <figure class="preview__fig">
+                        <img src="src/img/slider/pizza.png" alt="Recipe name" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__title">
+                          Pizza Capricioasa Picante cu salam si rosii si busuioc
+                        </h4>
+                        <p class="preview__publisher">20 Pizza</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="preview">
+                    <a href="#2122" class="preview__link">
+                      <figure class="preview__fig">
+                        <img src="src/img/slider/pizza.png" alt="Recipe name" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__title">
+                          Pizza Capricioasa Picante
+                        </h4>
+                        <p class="preview__publisher">
+                          20 Pizzadas dasd asd as d asd asd asdasdasd as
+                        </p>
+                      </div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </hearder>
+
+      <!-- Search Results ---------------------------------------->
+      <div class="search-results search-results__sideBar-toggle">
+        
+        <h1 class="title__main search-results__title">
+          <!-- <span>Pizza Recipfhisdfbnjv sjhfv bsfjvnbkjfsnes</span> -->
+        </h1>
+        <button class="search-results__btn hidden">
+          <svg>
+            <use href="/assets/icons-DnzRpXm9.svg#icon-arrow-left-circle"></use>
+          </svg>
+        </button>
+
+        <ul class="search-results__list">
+          <!--
+          <li class="preview">
+            <a href="#2122" class="preview__link">
+              <figure class="preview__fig search-results__redimensionFigure">
+                <img src="src/img/slider/pizza.png" alt="Recipe name" />
+              </figure>
+              <div class="preview__data hidden">
+                <h4 class="preview__title">
+                  Pizza Capricioasa Picante cu salam si rosii si busuioc
+                </h4>
+                <p class="preview__publisher">20 Pizza</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="preview">
+            <a href="#2122" class="preview__link preview__link--active">
+              <figure class="preview__fig">
+                <img src="src/img/slider/pizza.png" alt="Recipe name" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pizza Capricioasa Picante</h4>
+                <p class="preview__publisher">20 Pizza</p>
+              </div>
+            </a>
+          </li>
+
+          <li class="preview">
+            <a href="#2122" class="preview__link">
+              <figure class="preview__fig">
+                <img src="src/img/slider/pizza.png" alt="Recipe name" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pizza Capricioasa Picante</h4>
+                <p class="preview__publisher">
+                  20 Pizza dsasadasd adasd asdasdas dasd asd asd
+                </p>
+              </div>
+            </a>
+          </li>-->
+        </ul>
+
+         <!-- Pagination  -->
+        <nav class="pagination">
+          <!--
+          <button class="btn btn-pagination btn-pagination__prev">
+            <svg class="pagination__icon">
+              <use href="src/img/icons.svg#icon-arrow-left"></use>
+            </svg>
+          </button>
+          <button class="btn btn-pagination btn-pagination__numb" data-goTo="1">
+            <span>1</span>
+          </button>
+          <button
+            class="btn btn-pagination btn-pagination__numb btn-pagination__active"
+            data-goTo="2"
+          >
+            <span>2</span>
+          </button>
+          <button class="btn btn-pagination btn-pagination__numb" data-goTo="3">
+            <span>3</span>
+          </button>
+          <button class="btn btn-pagination btn-pagination__numb">
+            <span>4</span>
+          </button>
+          <button class="btn btn-pagination btn-pagination__dots">
+            <span>...</span>
+          </button>
+          <button class="btn btn-pagination btn-pagination__numb">
+            <span>6</span>
+          </button>
+          <button class="btn btn-pagination btn-pagination__next">
+            <svg class="pagination__icon">
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </nav>-->
+      </div>
+
+      <!-- Recipe ---------------------------------------->
+      <div class="recipe">
+        <div class="message message__recipe">
+          <p>
+            What are you waiting for? Search for a delicious recipe right now!
+            <svg class="message__icon">
+              <use href="/assets/icons-DnzRpXm9.svg#icon-grin"></use>
+            </svg>
+          </p>
+        </div>
+        <!-- <div class="recipe__header">
+          <div class="recipe__calories">
+            <div class="calories calories__container">
+              <h1 class="calories__title">Calories</h1>
+              <h1 class="calories__value">507 <span>kcal</span></h1>
+            </div>
+            <div class="calories__protein calories__container">
+              <h3 class="calories__macro calories__protein__title">Protein</h3>
+              <h3
+                class="calories__macro calories__macro__value calories__protein__value"
+              >
+                22 <span>g</span>
+              </h3>
+            </div>
+            <div class="calories__fat calories__container">
+              <h3 class="calories__macro calories__fat__title">Fats</h3>
+              <h3
+                class="calories__macro calories__macro__value calories__fat__value"
+              >
+                33 <span>g</span>
+              </h3>
+            </div>
+            <div class="calories__carbo calories__container">
+              <h3 class="calories__macro calories__carbo__title">
+                Carbohydrates
+              </h3>
+              <h3
+                class="calories__macro calories__macro__value calories__carbo__value"
+              >
+                40 <span>g</span>
+              </h3>
+            </div>
+          </div>
+
+          <figure class="recipe__fig">
+            <img
+              src="/src/img/slider/pizza.png"
+              alt="Recipe Photo"
+              class="recipe__img"
+            />
+            <h1 class="title__main recipe__title">
+              <span
+                >Pizza Capricioasa Picante cu salam si prosciutto cotto</span
+              >
+            </h1>
+          </figure>
+        </div>
+
+        Recipe details
+        <div class="recipe__details">
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="/src/img/icons.svg#icon-clock"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-minutes">45</span>
+            <span class="recipe__info-text">Minutes</span>
+          </div>
+
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="/src/img/icons.svg#icon-people_alt"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-minutes">4</span>
+            <span class="recipe__info-text">Servings</span>
+
+            <div class="recipe__info-buttons">
+              <button class="btn--tiny btn__servings btn__servings--plus">
+                <svg>
+                  <use href="/src/img/icons.svg#icon-add_circle_outline"></use>
+                </svg>
+              </button>
+              <button class="btn--tiny btn__servings">
+                <svg>
+                  <use href="/src/img/icons.svg#icon-minus-outline"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="btn--round">
+            <svg>
+              <use href="/src/img/icons.svg#icon-bookmark-outline"></use>
+            </svg>
+          </button>
+        </div>
+
+        Recipe ingredients
+        <div class="recipe__ingredients">
+          <h2 class="title--secondary">Recipe Ingredients</h2>
+          <ul class="recipe__ingredients-list">
+            <li class="recipe__ingredients-item">
+              <svg class="recipe__ingredients-icon">
+                <use href="/src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__ingredients-quantity">100</div>
+              <div class="recipe__ingredients-description">
+                <span class="recipe__ingredients-unit">g</span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellendus
+              </div>
+            </li>
+
+            <li class="recipe__ingredients-item">
+              <svg class="recipe__ingredients-icon">
+                <use href="/src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__ingredients-quantity">1000</div>
+              <div class="recipe__ingredients-description">
+                <span class="recipe__ingredients-unit">ml</span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Placeat
+              </div>
+            </li>
+
+            <li class="recipe__ingredients-item">
+              <svg class="recipe__ingredients-icon">
+                <use href="/src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__ingredients-quantity">50</div>
+              <div class="recipe__ingredients-description">
+                <span class="recipe__ingredients-unit">g</span>
+                salam
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recipe__instructions">
+          <div class="recipe__instructions-container">
+            <h2 class="title--secondary">How to cook it</h2>
+            <ul class="recipe__instructions-list">
+              <li class="recipe__instructions-item">
+                <h2 class="title--tetriary recipe__instructions-heading">
+                  <svg class="recipe__instructions-icon">
+                    <use href="/src/img/icons.svg#icon-arrow-right"></use>
+                  </svg>
+                  Roasted Pistachios
+                </h2>
+                <p class="recipe__instructions-text">
+                  <span>1</span>Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                </p>
+                <p class="recipe__instructions-text">
+                  <span>2</span>Lorem ipsum dolor sit amASDASDASD da fads fasd
+                  sad a dsaet consectetur adipisicing elit.
+                </p>
+                <p class="recipe__instructions-text">
+                  <span>3</span>Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                </p>
+              </li>
+
+              <li class="recipe__instructions-item">
+                <h2 class="title--tetriary recipe__instructions-heading">
+                  <svg class="recipe__instructions-icon">
+                    <use href="/src/img/icons.svg#icon-arrow-right"></use>
+                  </svg>
+                  Pesto
+                </h2>
+                <p class="recipe__instructions-text">
+                  <span>1</span>Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                </p>
+                <p class="recipe__instructions-text">
+                  <span>2</span>Lorem ipsum dolor sit amASDASDASD da fads fasd
+                  sad a dsaet consectetur adipisicing elit.
+                </p>
+                <p class="recipe__instructions-text">
+                  <span>3</span>Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="recipe__directions">
+          <div class="recipe__directions-container">
+            <p class="recipe__directions-text">
+              This recipe was carefully designed and tested by
+              <span>20 Pizza</span>. Please check out directions at their
+              website.
+            </p>
+            <a href="#" class="btn__recipe">
+              <span class="btn__recipe-text">Directions</span>
+              <svg class="btn__recipe-icon">
+                <use href="src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
+            <button class="btn recipe__directions--btn">
+              <span>Directions</span>
+              <svg class="recipe__directions-icon">
+                <use href="src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </button> 
+          </div>
+        </div> -->
+      </div>
+      <div class="overlay hidden"></div>
+    </div>
+  </body>
+</html>
