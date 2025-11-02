@@ -227,6 +227,7 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(0.3rem);
+  z-index: 9;
 }
 
 .hidden {
@@ -633,11 +634,13 @@ body {
   grid-auto-flow: column;
   grid-template-rows: 8rem 1fr 5rem;
   grid-template-columns: 1fr 3rem 2fr;
-  padding: 4rem;
+  padding: 5rem;
 }
 @media only screen and (max-width: 78.15em) {
   .recipe__header {
     grid-template-rows: 1fr 1fr;
+    position: relative;
+    z-index: 1;
   }
 }
 @media only screen and (max-width: 25.625em) {
@@ -651,7 +654,7 @@ body {
   grid-row: 2/-1;
   grid-column: 1/3;
   padding: 2rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   border-radius: 2.5rem;
   outline: 1rem solid #ffc1b2;
   transform: skewY(6deg);
@@ -667,10 +670,8 @@ body {
     margin: 0 1rem;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-    padding-top: 8rem;
+    z-index: 2;
   }
 }
 @media only screen and (max-width: 31.25em) {
@@ -678,9 +679,18 @@ body {
     flex-direction: column;
   }
 }
-@media only screen and (max-width: 25.625em) {
-  .recipe__calories {
-    padding-top: 13rem;
+@media only screen and (max-width: 78.15em) {
+  .recipe__calories--container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: -3rem;
+  }
+}
+@media only screen and (max-width: 31.25em) {
+  .recipe__calories--container {
+    flex-direction: column;
+    text-align: center;
   }
 }
 .recipe__fig {
@@ -737,9 +747,29 @@ body {
   }
 }
 .recipe__title {
+  grid-row: 3/-1;
+  grid-column: 2/-1;
   transform: translateY(-4rem) skewY(6deg);
   text-transform: uppercase;
   font-size: 3rem;
+  justify-self: center;
+}
+.recipe__title--calories {
+  display: none;
+}
+@media only screen and (max-width: 78.15em) {
+  .recipe__title--fig {
+    display: none;
+  }
+  .recipe__title--calories {
+    display: block;
+    transform: translateY(-7rem) skewY(6deg);
+  }
+}
+@media only screen and (max-width: 78.15em) and (max-width: 25.625em) {
+  .recipe__title--calories {
+    width: 90%;
+  }
 }
 .recipe__details {
   padding: 5rem;
@@ -818,7 +848,6 @@ body {
   margin-right: 0.5rem;
 }
 .recipe__ingredients-description {
-  text-align: justify;
   hyphens: auto;
 }
 .recipe__instructions {
@@ -916,12 +945,12 @@ body {
   color: #ffc1b2;
 }
 
-.calories {
+.calories__kcal {
   transform: skewY(-6deg);
   line-height: 2.8rem;
 }
 @media only screen and (max-width: 78.15em) {
-  .calories {
+  .calories__kcal {
     transform: skewY(0);
     justify-self: start;
   }
@@ -959,6 +988,9 @@ body {
   .calories__container {
     padding: 1rem;
   }
+}
+.calories__container:not(:last-child) {
+  padding-bottom: 2rem;
 }
 
 .btn__servings--plus {
