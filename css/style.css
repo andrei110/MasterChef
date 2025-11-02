@@ -807,6 +807,11 @@ body {
   align-items: center;
   margin-left: 3rem;
 }
+@media only screen and (max-width: 25.625em) {
+  .recipe__info-buttons {
+    margin-left: 2rem;
+  }
+}
 .recipe__info-data {
   margin-right: 0.5rem;
 }
