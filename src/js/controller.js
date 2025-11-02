@@ -31,7 +31,7 @@ const controlSearchResults = async function () {
     console.log(query);
     if (!query) return;
     // Unhide sideBar button (only below 800 px)
-    sideBarView.unhideSideBarBtn();
+    sideBarView.openSideBar();
     // Load recipes
     await model.loadSearchResults(query);
     console.log(model.state.search);

@@ -29,37 +29,44 @@ class RecipeView extends View {
     return `
       <div class="recipe__header">
           <div class="recipe__calories">
-            <div class="calories calories__container">
-              <h1 class="calories__title">Calories</h1>
-              <h1 class="calories__value">${Math.floor(
-                this._data.nutrition.calories
-              )} <span>kcal</span></h1>
-            </div>
-            <div class="calories__protein calories__container">
-              <h3 class="calories__macro calories__protein__title">Protein</h3>
-              <h3
-                class="calories__macro calories__macro__value calories__protein__value"
+            <h1 class="title__main recipe__title recipe__title--calories">
+              <span
+                >${this._data.title}</span
               >
-                ${this._data.nutrition.protein} <span>g</span>
-              </h3>
-            </div>
-            <div class="calories__fat calories__container">
-              <h3 class="calories__macro calories__fat__title">Fats</h3>
-              <h3
-                class="calories__macro calories__macro__value calories__fat__value"
-              >
-                ${this._data.nutrition.fats} <span>g</span>
-              </h3>
-            </div>
-            <div class="calories__carbo calories__container">
-              <h3 class="calories__macro calories__carbo__title">
-                Carbohydrates
-              </h3>
-              <h3
-                class="calories__macro calories__macro__value calories__carbo__value"
-              >
-                ${this._data.nutrition.carbs} <span>g</span>
-              </h3>
+            </h1>
+            <div class="recipe__calories--container">
+              <div class="calories__kcal calories__container">
+                <h1 class="calories__title">Calories</h1>
+                <h1 class="calories__value">${Math.floor(
+                  this._data.nutrition.calories
+                )} <span>kcal</span></h1>
+              </div>
+              <div class="calories__protein calories__container">
+                <h3 class="calories__macro calories__protein__title">Protein</h3>
+                <h3
+                  class="calories__macro calories__macro__value calories__protein__value"
+                >
+                  ${this._data.nutrition.protein} <span>g</span>
+                </h3>
+              </div>
+              <div class="calories__fat calories__container">
+                <h3 class="calories__macro calories__fat__title">Fats</h3>
+                <h3
+                  class="calories__macro calories__macro__value calories__fat__value"
+                >
+                  ${this._data.nutrition.fats} <span>g</span>
+                </h3>
+              </div>
+              <div class="calories__carbo calories__container">
+                <h3 class="calories__macro calories__carbo__title">
+                  Carbohydrates
+                </h3>
+                <h3
+                  class="calories__macro calories__macro__value calories__carbo__value"
+                >
+                  ${this._data.nutrition.carbs} <span>g</span>
+                </h3>
+              </div>
             </div>
           </div>
 
@@ -69,7 +76,7 @@ class RecipeView extends View {
               alt="Recipe Photo"
               class="recipe__img"
             />
-            <h1 class="title__main recipe__title">
+            <h1 class="title__main recipe__title recipe__title--fig">
               <span
                 >${this._data.title}</span
               >

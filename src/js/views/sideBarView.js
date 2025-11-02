@@ -25,14 +25,17 @@ class SideBarView extends View {
   }
 
   addHandlerOverlay() {
-    document.querySelector('.overlay').addEventListener('click', function () {
-      SideBarView.prototype.closeSideBar();
-    });
+    document
+      .querySelector('.overlay')
+      .addEventListener('click', this.closeSideBar);
   }
 
-  unhideSideBarBtn() {
+  openSideBar() {
     if (!this.bp800.matches) return;
     this._sideBarBtn.classList.remove('hidden');
+    this._parentElement.classList.remove('search-results__sideBar-toggle');
+    document.querySelector('.overlay').classList.remove('hidden');
+    setTimeout(() => this.setOverlayHeight(), 500);
   }
 
   closeSideBar() {
