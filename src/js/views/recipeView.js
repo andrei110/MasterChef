@@ -39,14 +39,14 @@ class RecipeView extends View {
                 <h1 class="calories__title">Calories</h1>
                 <h1 class="calories__value">${Math.floor(
                   this._data.nutrition.calories
-                )} <span>kcal</span></h1>
+                )} kcal</h1>
               </div>
               <div class="calories__protein calories__container">
                 <h3 class="calories__macro calories__protein__title">Protein</h3>
                 <h3
                   class="calories__macro calories__macro__value calories__protein__value"
                 >
-                  ${this._data.nutrition.protein} <span>g</span>
+                  ${this._data.nutrition.protein} g
                 </h3>
               </div>
               <div class="calories__fat calories__container">
@@ -54,7 +54,7 @@ class RecipeView extends View {
                 <h3
                   class="calories__macro calories__macro__value calories__fat__value"
                 >
-                  ${this._data.nutrition.fats} <span>g</span>
+                  ${this._data.nutrition.fats} g
                 </h3>
               </div>
               <div class="calories__carbo calories__container">
@@ -64,7 +64,7 @@ class RecipeView extends View {
                 <h3
                   class="calories__macro calories__macro__value calories__carbo__value"
                 >
-                  ${this._data.nutrition.carbs} <span>g</span>
+                  ${this._data.nutrition.carbs} g
                 </h3>
               </div>
             </div>
@@ -108,18 +108,18 @@ class RecipeView extends View {
             }</span>
 
             <div class="recipe__info-buttons">
-              <button class="btn--tiny btn__servings btn__servings--plus" data-servings=${
-                this._data.servings + 1
-              }>
-                <svg>
-                  <use href="${icons}#icon-add_circle_outline"></use>
-                </svg>
-              </button>
               <button class="btn--tiny btn__servings btn__servings--minus" data-servings=${
                 this._data.servings - 1
               }>
                 <svg>
                   <use href="${icons}#icon-minus-outline"></use>
+                </svg>
+              </button>
+              <button class="btn--tiny btn__servings btn__servings--plus" data-servings=${
+                this._data.servings + 1
+              }>
+                <svg>
+                  <use href="${icons}#icon-add_circle_outline"></use>
                 </svg>
               </button>
             </div>

@@ -13,6 +13,37 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  update(data) {
+    this._data = data;
+    // Generate the string Markup
+    const newMarkup = this.generateMarkup();
+    // Convert the HTML string to an Object
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    // Select all the elements from the newDOM and currentDOM
+    const newElements = Array.from(newDOM.querySelectorAll('*'));
+    // console.log(newElements); // newDOM Elements
+    const currElements = Array.from(this._parentElement.querySelectorAll('*'));
+    // console.log(currElements); // Current Elements
+
+    // Comparison between currElements and newElements
+    newElements.forEach((newEl, i) => {
+      const currEl = currElements[i];
+      // console.log(newEl, currEl, newEl.isEqualNode(currEl));
+      if (
+        !newEl.isEqualNode(currEl) &&
+        newEl.firstChild?.nodeValue.trim() !== ''
+      ) {
+        currEl.textContent = newEl.textContent;
+      }
+
+      if (!newEl.isEqualNode(currEl)) {
+        Array.from(newEl.attributes).forEach(attr =>
+          currEl.setAttribute(attr.name, attr.value)
+        );
+      }
+    });
+  }
+
   setOverlayHeight() {
     document.querySelector('.overlay').style.height = `${
       document.querySelector('.container').getBoundingClientRect().height

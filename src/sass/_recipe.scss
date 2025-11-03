@@ -408,11 +408,12 @@
 }
 
 .btn__servings {
-  &--plus {
+  &--minus {
     margin-right: 0.7rem;
-    svg {
-      height: 2.5rem;
-      width: 2.5rem;
-    }
+  }
+
+  &--plus svg {
+    height: 2.7rem;
+    width: 2.7rem;
   }
 }

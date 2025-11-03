@@ -998,12 +998,12 @@ body {
   padding-bottom: 2rem;
 }
 
-.btn__servings--plus {
+.btn__servings--minus {
   margin-right: 0.7rem;
 }
 .btn__servings--plus svg {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2.7rem;
+  width: 2.7rem;
 }
 
 /*# sourceMappingURL=style.css.map */

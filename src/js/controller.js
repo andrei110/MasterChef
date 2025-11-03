@@ -56,7 +56,7 @@ const controlServings = function (newServing) {
   console.log(newServing);
   model.updateServings(newServing);
   console.log(model.state.recipe);
-  recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 // App init
