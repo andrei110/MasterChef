@@ -4,6 +4,7 @@ import resultsView from './views/resultsView.js';
 import searchView from './views/searchView.js';
 import paginationView from './views/paginationView.js';
 import sideBarView from './views/sideBarView.js';
+import bookmarksView from './views/bookmarksView.js';
 
 const controlRecipe = async function () {
   try {
@@ -61,11 +62,12 @@ const controlServings = function (newServing) {
 
 // Add Bookmarks
 const controlAddBookmark = function () {
-  console.log('yeyeyeye');
+  // Add bookmark
   model.addBookmark();
-  console.log(model.state.recipe);
-  console.log(model.state.bookmarks);
+  // Update recipe view
   recipeView.update(model.state.recipe);
+  // Render bookmarks into bookmark menu
+  bookmarksView.render(model.state.bookmarks);
 };
 
 // App init
