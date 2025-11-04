@@ -23,6 +23,15 @@ class RecipeView extends View {
     });
   }
 
+  addHandlerBookmark(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      e.preventDefault();
+      const btn = e.target.closest('.btn--round');
+      if (!btn) return;
+      handler();
+    });
+  }
+
   generateMarkup() {
     // console.log(this._data);
     console.log(this);
@@ -126,7 +135,9 @@ class RecipeView extends View {
           </div>
           <button class="btn--round">
             <svg>
-              <use href="${icons}#icon-bookmark-outline"></use>
+              <use href="${icons}#icon-bookmark${
+      this._data.bookmarked ? '' : '-outline'
+    }"></use>
             </svg>
           </button>
         </div>

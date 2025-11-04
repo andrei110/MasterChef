@@ -59,6 +59,15 @@ const controlServings = function (newServing) {
   recipeView.update(model.state.recipe);
 };
 
+// Add Bookmarks
+const controlAddBookmark = function () {
+  console.log('yeyeyeye');
+  model.addBookmark();
+  console.log(model.state.recipe);
+  console.log(model.state.bookmarks);
+  recipeView.update(model.state.recipe);
+};
+
 // App init
 const init = function () {
   recipeView.addHandlerRender(controlRecipe);
@@ -67,6 +76,7 @@ const init = function () {
   paginationView.addHandlerPagination(controlPagination);
   sideBarView.addHandlerSideBar();
   sideBarView.addHandlerOverlay();
+  recipeView.addHandlerBookmark(controlAddBookmark);
 };
 
 init();
