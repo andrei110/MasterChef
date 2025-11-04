@@ -155,7 +155,13 @@
   text-align: center;
 
   &__bookmarks {
-    padding: 1rem 0;
+    padding: 2rem 0;
+    width: 100%;
+
+    &--text {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__recipe {

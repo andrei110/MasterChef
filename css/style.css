@@ -205,7 +205,12 @@ body {
   text-align: center;
 }
 .message__bookmarks {
-  padding: 1rem 0;
+  padding: 2rem 0;
+  width: 100%;
+}
+.message__bookmarks--text {
+  width: 100%;
+  text-align: center;
 }
 .message__recipe {
   margin: 7rem auto;
@@ -386,7 +391,6 @@ body {
   position: absolute;
   right: 0;
   background-color: #f8ebe7;
-  padding: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -411,14 +415,18 @@ body {
   align-items: center;
   transition: all 0.3s;
 }
-.preview__link:link:hover, .preview__link:visited:hover {
+.preview__link:link:hover:not(.preview__link--active), .preview__link:visited:hover:not(.preview__link--active) {
   transform: translateY(-2px);
+  background-color: #fbf5f3;
 }
 .preview__link:link:active, .preview__link:visited:active {
   transform: translateY(0);
 }
 .preview__link--active {
   background-color: #fff;
+}
+.preview__link--active:hover {
+  transform: translateY(-2px);
 }
 .preview__fig {
   position: relative;

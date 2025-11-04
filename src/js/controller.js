@@ -18,7 +18,12 @@ const controlRecipe = async function () {
 
     // Render recipe data
     recipeView.render(model.state.recipe);
+    // Update overlay height
     recipeView.setOverlayHeight();
+    // Update search results according to the current recipe
+    resultsView.update(model.getResultsPerPage());
+    // Update the bookmarks window according to the current recipe
+    bookmarksView.update(model.state.bookmarks);
   } catch (err) {
     console.error(err);
   }
