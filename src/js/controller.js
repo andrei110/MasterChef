@@ -4,6 +4,7 @@ import resultsView from './views/resultsView.js';
 import searchView from './views/searchView.js';
 import paginationView from './views/paginationView.js';
 import sideBarView from './views/sideBarView.js';
+import bookmarksView from './views/bookmarksView.js';
 
 const controlRecipe = async function () {
   try {
@@ -17,7 +18,12 @@ const controlRecipe = async function () {
 
     // Render recipe data
     recipeView.render(model.state.recipe);
+    // Update overlay height
     recipeView.setOverlayHeight();
+    // Update search results according to the current recipe
+    resultsView.update(model.getResultsPerPage());
+    // Update the bookmarks window according to the current recipe
+    bookmarksView.update(model.state.bookmarks);
   } catch (err) {
     console.error(err);
   }
@@ -59,6 +65,16 @@ const controlServings = function (newServing) {
   recipeView.update(model.state.recipe);
 };
 
+// Add Bookmarks
+const controlAddBookmark = function () {
+  // Add bookmark
+  model.addBookmark();
+  // Update recipe view
+  recipeView.update(model.state.recipe);
+  // Render bookmarks into bookmark menu
+  bookmarksView.render(model.state.bookmarks);
+};
+
 // App init
 const init = function () {
   recipeView.addHandlerRender(controlRecipe);
@@ -67,6 +83,7 @@ const init = function () {
   paginationView.addHandlerPagination(controlPagination);
   sideBarView.addHandlerSideBar();
   sideBarView.addHandlerOverlay();
+  recipeView.addHandlerBookmark(controlAddBookmark);
 };
 
 init();

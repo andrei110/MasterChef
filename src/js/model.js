@@ -14,12 +14,15 @@ export const state = {
     page: 1,
     resultsPerPage: RESULTS_PER_PAGE,
   },
+  bookmarks: [],
 };
 
 export const loadRecipe = async function (id) {
   try {
+    // Wait for data
     const data = await getJSON(`${API_URL_NUTRITION(id)}&${KEY}`);
     console.log(data);
+    // Move data into the state object
     state.recipe = {
       id: data.id,
       title: data.title,
@@ -40,6 +43,10 @@ export const loadRecipe = async function (id) {
           .amount,
       },
     };
+    // Set the bookmarked property according to bookmarks array
+    state.bookmarks.some(bookmark => bookmark.id === state.recipe.id)
+      ? (state.recipe.bookmarked = true)
+      : (state.recipe.bookmarked = false);
     console.log(state.recipe);
   } catch (err) {
     console.error(`${err}💥💥`);
@@ -104,4 +111,11 @@ export const updateServings = function (newServings) {
   state.recipe.ingredients.map(
     el => (el.amount = +(el.amountInitial * newServings).toFixed(2))
   );
+};
+
+export const addBookmark = function () {
+  // Mark the recipe as bookmarked
+  state.recipe.bookmarked = true;
+  // Copy the recipe to bookmarks array
+  state.bookmarks.push(state.recipe);
 };

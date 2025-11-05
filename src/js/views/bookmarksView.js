@@ -1,9 +1,8 @@
 import View from './View.js';
 import icons from '../../img/icons.svg';
 
-class ResultsView extends View {
-  _parentElement = document.querySelector('.search-results__list');
-  _sideBarBtn = document.querySelector('.search-results__btn');
+class BookmarksView extends View {
+  _parentElement = document.querySelector('.bookmarks__list');
   _errorMessage = '';
   _message = '';
 
@@ -33,4 +32,4 @@ class ResultsView extends View {
   }
 }
 
-export default new ResultsView();
+export default new BookmarksView();
