@@ -50,6 +50,30 @@ export default class View {
     }px`;
   }
 
+  renderMessage(message = this._message, svg) {
+    // Create new message
+    const html = `
+        <div class="message message__bookmarks">
+          <p class="message__text message__bookmarks--text">
+            ${message}
+            ${
+              svg
+                ? `
+              <svg class="message__icon">
+                <use href="src/img/icons.svg#icon-${svg}"></use>
+              </svg>
+              `
+                : ''
+            }
+          </p>
+        </div>
+    `;
+    // Clear previous content from container
+    this._clearParentEl();
+    // Add new message into container
+    this._parentElement.insertAdjacentHTML('afterbegin', html);
+  }
+
   renderError(err) {
     this._clearParentEl();
   }

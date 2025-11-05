@@ -113,9 +113,19 @@ export const updateServings = function (newServings) {
   );
 };
 
+// Add bookmarks
 export const addBookmark = function () {
   // Mark the recipe as bookmarked
   state.recipe.bookmarked = true;
   // Copy the recipe to bookmarks array
-  state.bookmarks.push(state.recipe);
+  state.bookmarks.unshift(state.recipe);
+};
+
+// Delete bookmarks
+export const deleteBookmark = function (id) {
+  // Mark the recipe as unbooked
+  state.recipe.bookmarked = false;
+  // Remove recipe from bookmarks state
+  const toBeDelete = state.bookmarks.findIndex(bookmark => bookmark.id === id);
+  state.bookmarks.splice(toBeDelete, 1);
 };

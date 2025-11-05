@@ -4,7 +4,7 @@ import icons from '../../img/icons.svg';
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
   _errorMessage = '';
-  _message = '';
+  _message = 'No bookmarks yet. Find a nice recipe and book it 😄';
 
   generateMarkup() {
     return this._data.map(this._generateMarkupPreview).join('');
