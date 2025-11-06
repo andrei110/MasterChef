@@ -1,14 +1,24 @@
 import View from './View.js';
 
 class SearchView extends View {
-  _parentElement = document.querySelector('.search');
+  _parentElement = document.querySelector('.header');
+  _searchElement = document.querySelector('.search');
   _inputSearch = document.querySelector('.search__field');
   _errorMessage = '';
   _message = '';
 
   addHandlerSearch(handler) {
-    this._parentElement.addEventListener('submit', function (e) {
+    this._searchElement.addEventListener('submit', function (e) {
       e.preventDefault();
+      handler();
+    });
+  }
+
+  addHandlerBookmarks(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      // e.preventDefault();
+      const btn = e.target.closest('.nav__btn');
+      if (!btn) return;
       handler();
     });
   }

@@ -7,6 +7,16 @@ class ResultsView extends View {
   _errorMessage = '';
   _message = '';
 
+  changeTitle(bookmarks) {
+    const html = `<span>${
+      bookmarks.length > 0 ? 'Bookmarks' : 'No Bookmarks yet'
+    }</span>`;
+    // Clear previous title
+    this.clearSearchTitle();
+    // Adding formatted title to page
+    this.searchTitle.insertAdjacentHTML('afterbegin', html);
+  }
+
   generateMarkup() {
     return this._data.map(this._generateMarkupPreview).join('');
   }

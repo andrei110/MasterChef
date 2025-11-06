@@ -20,10 +20,14 @@ const controlRecipe = async function () {
     recipeView.render(model.state.recipe);
     // Update overlay height
     recipeView.setOverlayHeight();
-    // Update search results according to the current recipe
-    resultsView.update(model.getResultsPerPage());
+    // Update results view
+    recipeView.searchTitle.firstChild.firstChild?.nodeValue === 'Bookmarks'
+      ? // Update bookmarks results according to the current recipe
+        resultsView.update(model.getResultsPerPage('bookmarks'))
+      : // Update search results according to the current recipe
+        resultsView.update(model.getResultsPerPage('search'));
     // Update the bookmarks window according to the current recipe
-    bookmarksView.update(model.state.bookmarks);
+    bookmarksView.update(model.state.bookmarks.results);
   } catch (err) {
     console.error(err);
   }
@@ -42,7 +46,7 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
     console.log(model.state.search);
     //Render recipes loaded
-    resultsView.render(model.getResultsPerPage(1));
+    resultsView.render(model.getResultsPerPage('search', 1));
     // Render initial pagination
     paginationView.render(model.state.search);
   } catch (err) {
@@ -54,16 +58,18 @@ const controlSearchResults = async function () {
 const controlPagination = function (page) {
   console.log(page);
   // Render recipes
-  resultsView.render(model.getResultsPerPage(page));
+  resultsView.render(model.getResultsPerPage('search', page));
   // Render pagination
   paginationView.render(model.state.search);
 };
 
 // Control servings
 const controlServings = function (newServing) {
-  console.log(newServing);
+  // console.log(newServing);
+  // Update servings data
   model.updateServings(newServing);
-  console.log(model.state.recipe);
+  // console.log(model.state.recipe);
+  // Update state according to new data
   recipeView.update(model.state.recipe);
 };
 
@@ -76,9 +82,26 @@ const controlBookmarks = function () {
   // Update recipe view
   recipeView.update(model.state.recipe);
   // Render bookmarks into bookmark menu
-  bookmarksView.render(model.state.bookmarks);
+  bookmarksView.render(model.state.bookmarks.results);
+  // Update bookmarks results according to the current recipe
+  if (recipeView.searchTitle.firstChild.firstChild?.nodeValue === 'Bookmarks') {
+    resultsView.render(model.getResultsPerPage('bookmarks'));
+    // Render pagination
+    paginationView.render(model.state.bookmarks);
+  }
   // Render message if there are no bookmarks
-  model.state.bookmarks.length === 0 && bookmarksView.renderMessage();
+  model.state.bookmarks.results.length === 0 && bookmarksView.renderMessage();
+};
+
+const controlBookmarksSideBar = function () {
+  // Open sideBar for mobile
+  sideBarView.openSideBar();
+  // Change sideBar title
+  resultsView.changeTitle(model.state.bookmarks.results);
+  // Render bookmarks results
+  resultsView.render(model.getResultsPerPage('bookmarks'));
+  // Render pagination
+  paginationView.render(model.state.bookmarks);
 };
 
 // App init
@@ -90,6 +113,7 @@ const init = function () {
   sideBarView.addHandlerSideBar();
   sideBarView.addHandlerOverlay();
   recipeView.addHandlerBookmark(controlBookmarks);
+  searchView.addHandlerBookmarks(controlBookmarksSideBar);
 };
 
 init();

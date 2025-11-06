@@ -14,7 +14,11 @@ export const state = {
     page: 1,
     resultsPerPage: RESULTS_PER_PAGE,
   },
-  bookmarks: [],
+  bookmarks: {
+    results: [],
+    page: 1,
+    resultsPerPage: RESULTS_PER_PAGE,
+  },
 };
 
 export const loadRecipe = async function (id) {
@@ -44,7 +48,7 @@ export const loadRecipe = async function (id) {
       },
     };
     // Set the bookmarked property according to bookmarks array
-    state.bookmarks.some(bookmark => bookmark.id === state.recipe.id)
+    state.bookmarks.results.some(bookmark => bookmark.id === state.recipe.id)
       ? (state.recipe.bookmarked = true)
       : (state.recipe.bookmarked = false);
     console.log(state.recipe);
@@ -74,11 +78,11 @@ export const loadSearchResults = async function (query) {
   }
 };
 
-export const getResultsPerPage = function (page = state.search.page) {
-  state.search.page = page;
-  const start = (page - 1) * state.search.resultsPerPage; //0
-  const end = page * state.search.resultsPerPage; //14
-  return state.search.results.slice(start, end);
+export const getResultsPerPage = function (recipes, page = state.search.page) {
+  state[recipes].page = page;
+  const start = (page - 1) * state[recipes].resultsPerPage; //0
+  const end = page * state[recipes].resultsPerPage; //14
+  return state[recipes].results.slice(start, end);
 };
 
 export const updateServings = function (newServings) {
@@ -118,7 +122,7 @@ export const addBookmark = function () {
   // Mark the recipe as bookmarked
   state.recipe.bookmarked = true;
   // Copy the recipe to bookmarks array
-  state.bookmarks.unshift(state.recipe);
+  state.bookmarks.results.unshift(state.recipe);
 };
 
 // Delete bookmarks
@@ -126,6 +130,8 @@ export const deleteBookmark = function (id) {
   // Mark the recipe as unbooked
   state.recipe.bookmarked = false;
   // Remove recipe from bookmarks state
-  const toBeDelete = state.bookmarks.findIndex(bookmark => bookmark.id === id);
-  state.bookmarks.splice(toBeDelete, 1);
+  const toBeDelete = state.bookmarks.results.findIndex(
+    bookmark => bookmark.id === id
+  );
+  state.bookmarks.results.splice(toBeDelete, 1);
 };
