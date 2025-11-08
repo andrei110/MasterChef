@@ -135,3 +135,7 @@ export const deleteBookmark = function (id) {
   );
   state.bookmarks.results.splice(toBeDelete, 1);
 };
+
+export const getFirstNBookmarks = function (number) {
+  return state.bookmarks.results.slice(0, number);
+};

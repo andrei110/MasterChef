@@ -120,6 +120,11 @@
       visibility: visible;
       opacity: 1;
     }
+
+    &:hover .btn__bookmarks-more {
+      animation: moveUp 0.9s ease,
+        moveLeftAndRight 1.5s 1.1s infinite ease-in-out;
+    }
   }
 
   &__btn {

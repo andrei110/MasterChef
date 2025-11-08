@@ -27,7 +27,7 @@ const controlRecipe = async function () {
       : // Update search results according to the current recipe
         resultsView.update(model.getResultsPerPage('search'));
     // Update the bookmarks window according to the current recipe
-    bookmarksView.update(model.state.bookmarks.results);
+    bookmarksView.update(model.getFirstNBookmarks(3));
   } catch (err) {
     console.error(err);
   }
@@ -82,7 +82,10 @@ const controlBookmarks = function () {
   // Update recipe view
   recipeView.update(model.state.recipe);
   // Render bookmarks into bookmark menu
-  bookmarksView.render(model.state.bookmarks.results);
+  // bookmarksView.render(model.state.bookmarks.results);
+  bookmarksView.render(model.getFirstNBookmarks(3));
+  model.state.bookmarks.results.length > 2 &&
+    bookmarksView.generateLoadBookmarksBtn();
   // Update bookmarks results according to the current recipe
   if (recipeView.searchTitle.firstChild.firstChild?.nodeValue === 'Bookmarks') {
     resultsView.render(model.getResultsPerPage('bookmarks'));

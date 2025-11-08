@@ -6,7 +6,22 @@ class BookmarksView extends View {
   _errorMessage = '';
   _message = 'No bookmarks yet. Find a nice recipe and book it 😄';
 
+  generateLoadBookmarksBtn() {
+    const html = `
+        <div class="btn__bookmarks-more-container">
+          <button class="btn btn__bookmarks-more">
+            <span>Load all Bookmarks</span>
+            <svg>
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+    `;
+    this._parentElement.insertAdjacentHTML('beforeend', html);
+  }
+
   generateMarkup() {
+    console.log(this._data.length);
     return this._data.map(this._generateMarkupPreview).join('');
   }
 

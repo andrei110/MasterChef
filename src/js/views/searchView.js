@@ -18,7 +18,8 @@ class SearchView extends View {
     this._parentElement.addEventListener('click', function (e) {
       // e.preventDefault();
       const btn = e.target.closest('.nav__btn');
-      if (!btn) return;
+      const btnMore = e.target.closest('.btn__bookmarks-more');
+      if (!btn && !btnMore) return;
       handler();
     });
   }
