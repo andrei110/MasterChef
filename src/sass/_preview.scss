@@ -11,9 +11,9 @@
       align-items: center;
       transition: all 0.3s;
 
-      &:hover {
+      &:hover:not(.preview__link--active) {
         transform: translateY(-2px);
-        // background-color: rgba($color-white, 0.2);
+        background-color: $color-secondary-light;
       }
 
       &:active {
@@ -23,6 +23,10 @@
 
     &--active {
       background-color: $color-white;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
     }
   }
 

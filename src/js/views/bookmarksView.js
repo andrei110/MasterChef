@@ -1,23 +1,27 @@
 import View from './View.js';
 import icons from '../../img/icons.svg';
 
-class ResultsView extends View {
-  _parentElement = document.querySelector('.search-results__list');
-  _sideBarBtn = document.querySelector('.search-results__btn');
+class BookmarksView extends View {
+  _parentElement = document.querySelector('.bookmarks__list');
   _errorMessage = '';
-  _message = '';
+  _message = 'No bookmarks yet. Find a nice recipe and book it 😄';
 
-  changeTitle(bookmarks) {
-    const html = `<span>${
-      bookmarks.length > 0 ? 'Bookmarks' : 'No Bookmarks yet'
-    }</span>`;
-    // Clear previous title
-    this.clearSearchTitle();
-    // Adding formatted title to page
-    this.searchTitle.insertAdjacentHTML('afterbegin', html);
+  generateLoadBookmarksBtn() {
+    const html = `
+        <div class="btn__bookmarks-more-container">
+          <button class="btn btn__bookmarks-more">
+            <span>Load all Bookmarks</span>
+            <svg>
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+    `;
+    this._parentElement.insertAdjacentHTML('beforeend', html);
   }
 
   generateMarkup() {
+    console.log(this._data.length);
     return this._data.map(this._generateMarkupPreview).join('');
   }
 
@@ -43,4 +47,4 @@ class ResultsView extends View {
   }
 }
 
-export default new ResultsView();
+export default new BookmarksView();
